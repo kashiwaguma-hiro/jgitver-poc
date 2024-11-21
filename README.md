@@ -108,3 +108,22 @@ BUILD SUCCESSFUL in 311ms
 kashiwaguma-hiro@QCXL4279VX jgitver-poc % git tag 
 0.0.1
 ```
+
+メジャーバージョン上げてみる
+```
+% git tag -a 1.0.0 -m "major increment"
+% git push origin 1.0.0                                   
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 174 bytes | 174.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/kashiwaguma-hiro/jgitver-poc.git
+ * [new tag]         1.0.0 -> 1.0.0
+
+% ./gradlew version
+
+> Task :version
+Version: 1.0.0
+
+BUILD SUCCESSFUL in 332ms
+```
