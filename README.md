@@ -75,5 +75,36 @@ Version: 0.0.1
 
 そのあと、改修いれてみる
 ```
+% git switch -c feature/modify_readme
 
+% ./gradlew version #featureブランチでの確認
+
+> Task :version
+Version: 0.0.2-feature_modify_readme-SNAPSHOT
+
+BUILD SUCCESSFUL in 331ms
+1 actionable task: 1 executed
+```
+
+上記featureをマージし、その後のバージョンどうなるのっと
+```
+% git switch main
+Switched to branch 'main'
+Your branch is behind 'origin/main' by 2 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+kashiwaguma-hiro@QCXL4279VX jgitver-poc % git pull
+Updating a9914f7..5d118b3
+Fast-forward
+ README.md | 47 +++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 47 insertions(+)
+
+ % ./gradlew version
+
+> Task :version
+Version: 0.0.2-SNAPSHOT # tagのバージョンにインクリメントした値になってる
+
+BUILD SUCCESSFUL in 311ms
+1 actionable task: 1 executed
+kashiwaguma-hiro@QCXL4279VX jgitver-poc % git tag 
+0.0.1
 ```
